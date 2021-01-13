@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee1bc712-a781-4d95-82e2-9418b044a0dd" name="Default Changelist" comment="" />
+    <list default="true" id="ee1bc712-a781-4d95-82e2-9418b044a0dd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NotePlugin/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NotePlugin/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NotePlugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NotePlugin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,15 +14,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/NoteComponent.cs" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/EditorWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/NoteComponent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MyHierarchyIcon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HierarchyIcon.cs" />
       </list>
     </option>
   </component>
@@ -62,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1610457032501</updated>
       <workItem from="1610457034067" duration="566000" />
+      <workItem from="1610526899368" duration="2323000" />
     </task>
     <servers />
   </component>
