@@ -133,7 +133,7 @@ public class Notes : EditorWindow
             NotesScriptableObject ObjectScript =
                 ScriptableObject.CreateInstance(typeof(NotesScriptableObject)) as NotesScriptableObject;
             ObjectScript.objectID = Path.GetRandomFileName();
-            AssetDatabase.CreateAsset((Object) ObjectScript, "Assets/Scripts/SavedObjects" + ObjectScript.objectID + ".asset");
+            AssetDatabase.CreateAsset((Object) ObjectScript, path: "Assets/Scripts/SavedObjects" + "/" + ObjectScript.objectID + ".asset");
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }

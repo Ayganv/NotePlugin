@@ -27,8 +27,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/CreateWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/CreateNote.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/SmallWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/NotesScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" />
       </list>
     </option>
   </component>
@@ -74,7 +74,7 @@
       <workItem from="1610457034067" duration="566000" />
       <workItem from="1610526899368" duration="2323000" />
       <workItem from="1610558733953" duration="1000" />
-      <workItem from="1610558802052" duration="11651000" />
+      <workItem from="1610558802052" duration="12041000" />
     </task>
     <servers />
   </component>
