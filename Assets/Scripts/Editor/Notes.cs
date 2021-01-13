@@ -8,13 +8,19 @@ public class Notes : EditorWindow
     private const float padding = 10;
     private List<NoteComponent> sceneNotes;
     private Vector2 scroll;
+
+    private Rect offsetRect;
+
+    private bool showProjectNotes = true;
+    private bool showSceneNotes = true;
+    private string projectNotesGroup = "Project Notes";
+    private string sceneNotesGroup = "Scene Notes";
     
     
     
     [MenuItem("Window/Note")]
     static void Init()
     {
-       
         Notes window = (Notes)EditorWindow.GetWindow(typeof(Notes));
         window.Show();
     }
@@ -27,34 +33,103 @@ public class Notes : EditorWindow
     void OnGUI()
     {
         
-        GUILayout.Label("Notes", EditorStyles.boldLabel);
-
-        GUILayout.BeginVertical();
-
+        //GUILayout.BeginVertical();
+        GUILayout.Label("Vert", EditorStyles.boldLabel);
+        
+        
+        
+        //GUILayout.BeginVertical();
+        GUILayout.Label("Search-field-placeholder", EditorStyles.boldLabel);
+        //GUILayout.EndVertical();
+        
+        //GUILayout.BeginVertical();
+        
         scroll = GUILayout.BeginScrollView(scroll);
+        //GUILayout.BeginVertical();
         
-        //TODO: Also do a for-loop for the projectNotes List and output what we need to get from it
-        
-        //Iterates through every sceneNote in the List and output what we need to get from it
-        for (int index = 0; index < this.sceneNotes.Count; index++)
-        {
-            //Add here what we want to show for each Component Object
+            // Foldout Header Group for the ProjectNotes
+            //GUILayout.BeginVertical();
+            //showProjectNotes = EditorGUI.Foldout(new Rect(3, 3, position.width - 6, 15), showProjectNotes, projectNotesGroup);
             
-            GUILayout.BeginVertical();
-            GUILayout.Space(padding);
-            GUILayout.Label("NoteInScene", EditorStyles.boldLabel);
-            GUILayout.Label(sceneNotes[index].Note);
-            GUILayout.Space(padding);
-            GUILayout.EndVertical();
+            showProjectNotes = EditorGUI.BeginFoldoutHeaderGroup(new Rect(0,3,200,20), showProjectNotes, projectNotesGroup );
             
-            //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
-        }
-        
+            
+                GUILayout.Space(padding);
+                
+                
+                if (showProjectNotes)
+                { 
+                    //GUILayout.BeginVertical();
+                        //TODO: Also do a for-loop for the projectNotes List and output what we need to get from it
+                        
+                        for (int index = 0; index < this.sceneNotes.Count; index++)
+                        {
+                            //Add here what we want to show for each Component Object
+                            GUILayout.Space(padding);
+                            GUILayout.BeginVertical();
+                            GUILayout.Space(padding);
+                            GUILayout.Label("NoteInScene", EditorStyles.boldLabel);
+                            GUILayout.Label(sceneNotes[index].Note);
+                            GUILayout.Space(padding);
+                            GUILayout.EndVertical();
+
+                            //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
+                        }
+                    
+                    
+                    //GUILayout.EndVertical();
+                    //offsetRect = ;
+                }
+                
+            EditorGUI.EndFoldoutHeaderGroup();
+            //GUILayout.EndVertical();
+            
+            //GUILayout.EndVertical();
+          
+        //GUILayout.BeginVertical();
+            GUILayout.Space(padding);
+            
+            
+            // Foldout Header Group for the SceneNotes
+            //GUILayout.BeginVertical();
+            showSceneNotes = EditorGUI.BeginFoldoutHeaderGroup(new Rect(0,23,200,20), showSceneNotes, sceneNotesGroup );
+            
+            //showSceneNotes = EditorGUI.Foldout(new Rect(3, 23, position.width - 6, 15), showSceneNotes, sceneNotesGroup);
+            
+                if (showSceneNotes)
+                {
+                    //GUILayout.BeginVertical();
+                    //Iterates through every sceneNote in the List and output what we need to get from it
+                        for (int index = 0; index < this.sceneNotes.Count; index++)
+                        {
+                            //Add here what we want to show for each Component Object
+                            GUILayout.Space(padding);
+                            GUILayout.BeginVertical();
+                            GUILayout.Space(padding);
+                            GUILayout.Label("NoteInScene", EditorStyles.boldLabel);
+                            GUILayout.Label(sceneNotes[index].Note);
+                            GUILayout.Space(padding);
+                            GUILayout.EndVertical();
+
+                            //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
+                        }
+                    //GUILayout.EndVertical();
+                }
+            
+            EditorGUI.EndFoldoutHeaderGroup();
+            //GUILayout.EndVertical();
+            
+            GUILayout.Space(padding);
+            
+        //GUILayout.EndVertical();
+
         GUILayout.EndScrollView();
         
-        GUILayout.EndVertical();
-      
+        
+        
+        
         GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
         if (GUILayout.Button("Create"))
         {
             
@@ -67,12 +142,22 @@ public class Notes : EditorWindow
             
             Refresh();
         }
+        
+        
+        
+        
+        
         GUILayout.EndHorizontal();
+        //GUILayout.EndVertical();
     }
 
     public void Refresh()
     {
         this.sceneNotes = new List<NoteComponent>();
+        // Also needs to have a foreach that looks through Project notes?
+        
+        
+        
         foreach (GameObject gameObject in (GameObject[]) Object.FindObjectsOfType<GameObject>())
         {
             NoteComponent[] components = (NoteComponent[]) gameObject.GetComponents<NoteComponent>();
