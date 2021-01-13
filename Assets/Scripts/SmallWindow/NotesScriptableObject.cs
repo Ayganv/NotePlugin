@@ -7,7 +7,7 @@ public class NotesScriptableObject : ScriptableObject
 {
     [SerializeField] public string objectID;
     [SerializeField] public string name;
-    [SerializeField] public string description = "test";
+    [SerializeField] public string description;
     [SerializeField] public string tags;
     [SerializeField] public Color color;
     [SerializeField] private string deviceName;
