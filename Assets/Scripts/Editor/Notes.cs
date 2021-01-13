@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-public class Note : EditorWindow
+public class Notes : EditorWindow
 {
     
     private const float padding = 10;
@@ -16,7 +16,7 @@ public class Note : EditorWindow
     static void Init()
     {
        
-        Note window = (Note)EditorWindow.GetWindow(typeof(Note));
+        Notes window = (Notes)EditorWindow.GetWindow(typeof(Notes));
         window.Show();
     }
 
