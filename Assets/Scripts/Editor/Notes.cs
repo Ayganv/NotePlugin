@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public class Note : EditorWindow
+public class Notes : EditorWindow
 {
     
     [MenuItem("Window/Note")]
     static void Init()
     {
        
-        Note window = (Note)EditorWindow.GetWindow(typeof(Note));
+        Notes window = (Notes)EditorWindow.GetWindow(typeof(Notes));
         window.Show();
     }
 

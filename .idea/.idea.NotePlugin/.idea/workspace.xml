@@ -4,7 +4,8 @@
     <list default="true" id="ee1bc712-a781-4d95-82e2-9418b044a0dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NotePlugin/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NotePlugin/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NotePlugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NotePlugin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HierarchyIcon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HierarchyIcon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,16 +15,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HierarchyIcon.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/EditorWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/NoteComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MyHierarchyIcon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/HierarchyIcon.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/HierarchyIcon.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1myDeWG7BrswBOSD0B2LZqV4WlI" />
   <component name="ProjectViewState">
@@ -42,7 +41,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -51,7 +50,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
