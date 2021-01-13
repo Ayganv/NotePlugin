@@ -6,7 +6,6 @@ public class Notes : EditorWindow
 {
     
     private const float padding = 10;
-    private float hsBar;
     private List<NoteComponent> sceneNotes;
     private Vector2 scroll;
     
@@ -31,11 +30,12 @@ public class Notes : EditorWindow
         GUILayout.Label("Notes", EditorStyles.boldLabel);
 
         GUILayout.BeginVertical();
-        //hsBar = GUILayout.VerticalScrollbar(hsBar, 0f,0f,10f);
 
         scroll = GUILayout.BeginScrollView(scroll);
         
-        //Iterate through every sceneNote in the List and output what we need to get from it
+        //TODO: Also do a for-loop for the projectNotes List and output what we need to get from it
+        
+        //Iterates through every sceneNote in the List and output what we need to get from it
         for (int index = 0; index < this.sceneNotes.Count; index++)
         {
             //Add here what we want to show for each Component Object
@@ -46,6 +46,8 @@ public class Notes : EditorWindow
             GUILayout.Label(sceneNotes[index].Note);
             GUILayout.Space(padding);
             GUILayout.EndVertical();
+            
+            //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
         }
         
         GUILayout.EndScrollView();
