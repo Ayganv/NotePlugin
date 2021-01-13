@@ -16,13 +16,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SmallWindow/SmallWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HierarchyIcon.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/HierarchyIcon.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/ScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/NotesScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/CreateWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/CreateNote.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/SmallWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/NotesScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1myDeWG7BrswBOSD0B2LZqV4WlI" />
   <component name="ProjectViewState">
@@ -41,7 +49,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -50,7 +58,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -65,6 +73,8 @@
       <updated>1610457032501</updated>
       <workItem from="1610457034067" duration="566000" />
       <workItem from="1610526899368" duration="2323000" />
+      <workItem from="1610558733953" duration="1000" />
+      <workItem from="1610558802052" duration="11641000" />
     </task>
     <servers />
   </component>

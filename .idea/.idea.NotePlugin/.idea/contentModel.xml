@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\virgb\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\virgb\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_NotePlugin.655390281.00" t="ExcludeRecursive" />
-    <e p="D:\NewUnityProjects\NotePlugin" t="IncludeRecursive">
+    <e p="C:\Users\Adam\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Adam\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_NotePlugin.-597350347.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Adam\Documents\GitHub\NotePlugin" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -13,6 +13,10 @@
           </e>
           <e p="HierarchyIcon.cs" t="Include" />
           <e p="NoteComponent.cs" t="Include" />
+          <e p="SmallWindow" t="Include">
+            <e p="NotesScriptableObject.cs" t="Include" />
+            <e p="SmallWindow.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="NotePlugin.sln" t="IncludeFlat" />
