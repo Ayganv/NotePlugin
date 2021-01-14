@@ -26,8 +26,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/NotesScriptableObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/CreateWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/CreateNote.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/SmallWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/NotesScriptableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SmallWindow/SmallWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/Notes.cs" />
       </list>
     </option>

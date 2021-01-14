@@ -9,6 +9,9 @@ public class Notes : EditorWindow
 {
     private const float padding = 10;
     private List<NoteComponent> sceneNotes;
+
+    private string[] scriptableobject =
+        AssetDatabase.FindAssets(string.Format("t:{0}", (object) typeof(NotesScriptableObject)), new string[1]);
     private Vector2 scroll;
 
     private Rect offsetRect;
@@ -41,8 +44,6 @@ public class Notes : EditorWindow
 
         GUILayout.Space(10f);
         GUILayout.Label("Search-field-placeholder", EditorStyles.boldLabel);
-        // Make a search bar item
-        EditorGUILayout.TextField("");
 
 
         showProjectNotes =
@@ -61,7 +62,7 @@ public class Notes : EditorWindow
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Note Name");
                 GUILayout.FlexibleSpace();
-                GUILayout.Label("Created by:" + " " + sceneNotes[index].deviceName + " - " + sceneNotes[index].CreatedDate );
+                GUILayout.Label("Created by: Linus PC - 13/1 2021 17:53");
                 GUILayout.EndHorizontal();
 
                 GUILayout.BeginHorizontal();
@@ -78,7 +79,7 @@ public class Notes : EditorWindow
 
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Tags: ");
-                GUILayout.TextArea("Project," + " " + sceneNotes[index].tags);
+                GUILayout.TextArea("Project," + " " + "TestNote2,");
                 GUILayout.EndHorizontal();
 
                 GUI.backgroundColor = originalColor;
@@ -105,30 +106,31 @@ public class Notes : EditorWindow
         }
 
         GUILayout.Space(padding);
-        
+
+
+        // Foldout Header Group for the SceneNotes
 
         showSceneNotes = EditorGUILayout.Foldout(showSceneNotes, "Scene Notes");
 
         if (showSceneNotes)
         {
-
+            //Iterates through every sceneNote in the List and output what we need to get from it
             for (int index = 0; index < this.sceneNotes.Count; index++)
             {
-                //TODO: store search tag and match;
-                //if (sceneNotes[index].tags != "(my thing)") return;
+                //Add here what we want to show for each Component Object
 
                 GUI.backgroundColor = sceneNotes[index].color;
                 GUILayout.Space(padding);
 
                 GUILayout.BeginHorizontal();
-                GUILayout.Label(sceneNotes[index].title,  EditorStyles.boldLabel);
+                GUILayout.Label("Note Name");
                 GUILayout.FlexibleSpace();
-                GUILayout.Label("Created by:" + " " + sceneNotes[index].deviceName + " - " + sceneNotes[index].CreatedDate );
+                GUILayout.Label("Created by: ");
                 GUILayout.EndHorizontal();
 
                 GUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
-                GUILayout.Label("Edited by:" + " " + sceneNotes[index].LastEditedBy + " - " + sceneNotes[index].LastEditDate );
+                GUILayout.Label("Edited by: Linus PC - 13/1 2021 17:53");
                 GUILayout.EndHorizontal();
 
 
@@ -139,7 +141,7 @@ public class Notes : EditorWindow
 
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Tags: ");
-                GUILayout.TextArea("Scene," + " " + sceneNotes[index].tags);
+                GUILayout.TextArea("Project," + " " + "TestNote2,");
                 GUILayout.EndHorizontal();
 
 
@@ -150,18 +152,20 @@ public class Notes : EditorWindow
 
                 if (GUILayout.Button("Ping GameObject"))
                 {
-                    EditorGUIUtility.PingObject(sceneNotes[index]);
+                    //TODO: Make it ping the related GameObject
                 }
 
                 GUILayout.FlexibleSpace();
 
                 if (GUILayout.Button("Delete"))
                 {
-                    sceneNotes[index].Delete();
-                    Refresh();
+                    //TODO: Make it delete the object & refresh the window
                 }
 
                 GUILayout.EndHorizontal();
+
+
+                //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
             }
         }
 
