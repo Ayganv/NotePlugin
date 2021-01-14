@@ -75,8 +75,9 @@ public class Notes : EditorWindow
                 GUILayout.BeginHorizontal();
                 if(sceneNotes[index].Note != String.Empty) GUILayout.TextArea(sceneNotes[index].Note);
                 else GUILayout.TextArea("#Empty Note");
-                GUILayout.Space(padding);
                 GUILayout.EndHorizontal();
+                
+                
                 
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Tags: ");
@@ -138,7 +139,6 @@ public class Notes : EditorWindow
                 GUILayout.BeginHorizontal();
                 if(sceneNotes[index].Note != String.Empty) GUILayout.TextArea(sceneNotes[index].Note);
                 else GUILayout.TextArea("#Empty Note");
-                GUILayout.Space(padding);
                 GUILayout.EndHorizontal();
                 
                 GUILayout.BeginHorizontal();
@@ -192,6 +192,8 @@ public class Notes : EditorWindow
             AssetDatabase.CreateAsset((Object) ObjectScript, path: "Assets/Scripts/SavedObjects" + "/" + ObjectScript.objectID + ".asset");
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+            
+            
         }
 
         GUILayout.FlexibleSpace();
