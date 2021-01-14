@@ -10,6 +10,6 @@ public class NotesScriptableObject : ScriptableObject
     [SerializeField] public string description;
     [SerializeField] public string tags;
     [SerializeField] public Color color;
-    [SerializeField] private string deviceName;
-    [SerializeField] private Time _timeCreated;
+    [SerializeField] public string deviceName;
+    [SerializeField] public string timeCreated;
 }

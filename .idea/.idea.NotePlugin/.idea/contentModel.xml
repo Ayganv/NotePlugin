@@ -10,9 +10,11 @@
         <e p="Scripts" t="Include">
           <e p="Editor" t="Include">
             <e p="Notes.cs" t="Include" />
+            <e p="ReadOnlyDrawer.cs" t="Include" />
           </e>
           <e p="HierarchyIcon.cs" t="Include" />
           <e p="NoteComponent.cs" t="Include" />
+          <e p="ReadOnlyProperty.cs" t="Include" />
           <e p="SmallWindow" t="Include">
             <e p="NotesScriptableObject.cs" t="Include" />
             <e p="SmallWindow.cs" t="Include" />

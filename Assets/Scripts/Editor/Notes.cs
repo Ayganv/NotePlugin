@@ -17,7 +17,7 @@ public class Notes : EditorWindow
     private bool showSceneNotes = true;
     private string projectNotesGroup = "Project Notes";
     private string sceneNotesGroup = "Scene Notes";
-    
+
     private Color originalColor;
 
 
@@ -36,70 +36,66 @@ public class Notes : EditorWindow
 
     void OnGUI()
     {
-      
         scroll = GUILayout.BeginScrollView(scroll);
         GUILayout.BeginVertical();
-        
+
         GUILayout.Space(10f);
         GUILayout.Label("Search-field-placeholder", EditorStyles.boldLabel);
-        
-        
+
+
         showProjectNotes =
-            EditorGUILayout.Foldout(showProjectNotes , "Project Notes");
+            EditorGUILayout.Foldout(showProjectNotes, "Project Notes");
 
         if (showProjectNotes)
         {
-            
             //TODO: Also do a for-loop for the projectNotes List and output what we need to get from it
 
             for (int index = 0; index < this.sceneNotes.Count; index++)
             {
-                
-                
                 //Add here what we want to show for each Component Object
                 GUI.backgroundColor = sceneNotes[index].color;
                 GUILayout.Space(padding);
-                
+
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Note Name");
                 GUILayout.FlexibleSpace();
                 GUILayout.Label("Created by: Linus PC - 13/1 2021 17:53");
                 GUILayout.EndHorizontal();
-                
+
                 GUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
                 GUILayout.Label("Edited by: Linus PC - 13/1 2021 17:53");
                 GUILayout.EndHorizontal();
-                
-                
+
+
                 GUILayout.BeginHorizontal();
-                if(sceneNotes[index].Note != String.Empty) GUILayout.TextArea(sceneNotes[index].Note);
+                if (sceneNotes[index].Note != String.Empty) GUILayout.TextArea(sceneNotes[index].Note);
                 else GUILayout.TextArea("#Empty Note");
                 GUILayout.EndHorizontal();
-                
-                
-                
+
+
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Tags: ");
                 GUILayout.TextArea("Project," + " " + "TestNote2,");
-                GUILayout.EndHorizontal(); 
-                
+                GUILayout.EndHorizontal();
+
                 GUI.backgroundColor = originalColor;
-                
-                
+
+
                 GUILayout.BeginHorizontal();
-            
+
                 if (GUILayout.Button("Edit Note"))
                 {
                     //TODO: Open the EditorWindow to Edit the note   
                 }
-        
+
                 GUILayout.FlexibleSpace();
-        
+
                 if (GUILayout.Button("Delete"))
                 {
                     //TODO: Make it delete the object & refresh the window
                 }
+
                 GUILayout.EndHorizontal();
 
                 //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
@@ -110,12 +106,11 @@ public class Notes : EditorWindow
 
 
         // Foldout Header Group for the SceneNotes
-        
-        showSceneNotes = EditorGUILayout.Foldout(showSceneNotes , "Scene Notes");
+
+        showSceneNotes = EditorGUILayout.Foldout(showSceneNotes, "Scene Notes");
 
         if (showSceneNotes)
         {
-            
             //Iterates through every sceneNote in the List and output what we need to get from it
             for (int index = 0; index < this.sceneNotes.Count; index++)
             {
@@ -123,77 +118,74 @@ public class Notes : EditorWindow
 
                 GUI.backgroundColor = sceneNotes[index].color;
                 GUILayout.Space(padding);
-                
+
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Note Name");
                 GUILayout.FlexibleSpace();
                 GUILayout.Label("Created by: Linus PC - 13/1 2021 17:53");
                 GUILayout.EndHorizontal();
-                
+
                 GUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
                 GUILayout.Label("Edited by: Linus PC - 13/1 2021 17:53");
                 GUILayout.EndHorizontal();
-                
-                
+
+
                 GUILayout.BeginHorizontal();
-                if(sceneNotes[index].Note != String.Empty) GUILayout.TextArea(sceneNotes[index].Note);
+                if (sceneNotes[index].Note != String.Empty) GUILayout.TextArea(sceneNotes[index].Note);
                 else GUILayout.TextArea("#Empty Note");
                 GUILayout.EndHorizontal();
-                
+
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Tags: ");
                 GUILayout.TextArea("Project," + " " + "TestNote2,");
-                GUILayout.EndHorizontal(); 
-                
-                
+                GUILayout.EndHorizontal();
+
+
                 GUI.backgroundColor = originalColor;
-                
-                
+
+
                 GUILayout.BeginHorizontal();
-            
+
                 if (GUILayout.Button("Ping GameObject"))
                 {
                     //TODO: Make it ping the related GameObject
                 }
-        
+
                 GUILayout.FlexibleSpace();
-        
+
                 if (GUILayout.Button("Delete"))
                 {
                     //TODO: Make it delete the object & refresh the window
                 }
+
                 GUILayout.EndHorizontal();
-                
-                
-                
+
+
                 //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
             }
         }
 
-        
+
         GUILayout.FlexibleSpace();
         GUILayout.EndVertical();
 
         GUILayout.Space(padding);
 
-        
-
-        
-        
 
         GUILayout.BeginHorizontal();
-        
+
         if (GUILayout.Button("Create"))
         {
             NotesScriptableObject ObjectScript =
                 ScriptableObject.CreateInstance(typeof(NotesScriptableObject)) as NotesScriptableObject;
             ObjectScript.objectID = Path.GetRandomFileName();
-            AssetDatabase.CreateAsset((Object) ObjectScript, path: "Assets/Scripts/SavedObjects" + "/" + ObjectScript.objectID + ".asset");
+            ObjectScript.deviceName = Environment.UserName;
+            ObjectScript.timeCreated = DateTime.UtcNow.ToString();
+            AssetDatabase.CreateAsset((Object) ObjectScript,
+                path: "Assets/Scripts/SavedObjects" + "/" + ObjectScript.objectID + ".asset");
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            
-            
         }
 
         GUILayout.FlexibleSpace();
@@ -205,16 +197,15 @@ public class Notes : EditorWindow
 
 
         GUILayout.EndHorizontal();
-        
+
         GUILayout.EndScrollView();
-        
     }
 
     public void Refresh()
     {
         this.sceneNotes = new List<NoteComponent>();
         // Also needs to have a foreach that looks through Project notes?
-        
+
 
         foreach (GameObject gameObject in (GameObject[]) Object.FindObjectsOfType<GameObject>())
         {
