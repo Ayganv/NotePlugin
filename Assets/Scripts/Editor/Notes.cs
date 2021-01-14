@@ -15,6 +15,8 @@ public class Notes : EditorWindow
     private bool showSceneNotes = true;
     private string projectNotesGroup = "Project Notes";
     private string sceneNotesGroup = "Scene Notes";
+    
+    private Color originalColor;
 
 
     [MenuItem("Window/Note")]
@@ -26,110 +28,86 @@ public class Notes : EditorWindow
 
     private void OnEnable()
     {
+        originalColor = GUI.backgroundColor;
         Refresh();
     }
 
     void OnGUI()
     {
-        //GUILayout.BeginVertical();
-        GUILayout.Label("Vert", EditorStyles.boldLabel);
-
-
-        //GUILayout.BeginVertical();
-        GUILayout.Label("Search-field-placeholder", EditorStyles.boldLabel);
-        //GUILayout.EndVertical();
-
-        //GUILayout.BeginVertical();
-
+      
         scroll = GUILayout.BeginScrollView(scroll);
-        //GUILayout.BeginVertical();
-
-        // Foldout Header Group for the ProjectNotes
-        //GUILayout.BeginVertical();
-        //showProjectNotes = EditorGUI.Foldout(new Rect(3, 3, position.width - 6, 15), showProjectNotes, projectNotesGroup);
-
+        GUILayout.BeginVertical();
+        
+        GUILayout.Space(10f);
+        GUILayout.Label("Search-field-placeholder", EditorStyles.boldLabel);
+        
+        
         showProjectNotes =
-            EditorGUI.BeginFoldoutHeaderGroup(new Rect(0, 3, 200, 20), showProjectNotes, projectNotesGroup);
-
-
-        GUILayout.Space(padding);
-
+            EditorGUILayout.Foldout(showProjectNotes , "Project Notes");
 
         if (showProjectNotes)
         {
-            //GUILayout.BeginVertical();
+            
             //TODO: Also do a for-loop for the projectNotes List and output what we need to get from it
 
             for (int index = 0; index < this.sceneNotes.Count; index++)
             {
                 //Add here what we want to show for each Component Object
                 GUILayout.Space(padding);
-                GUILayout.BeginVertical();
+                GUILayout.BeginHorizontal();
                 GUILayout.Space(padding);
                 GUILayout.Label("NoteInScene", EditorStyles.boldLabel);
+                GUILayout.FlexibleSpace();
                 GUILayout.Label(sceneNotes[index].Note);
                 GUILayout.Space(padding);
-                GUILayout.EndVertical();
+                GUILayout.EndHorizontal();
 
                 //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
             }
-
-
-            //GUILayout.EndVertical();
-            //offsetRect = ;
         }
 
-        EditorGUI.EndFoldoutHeaderGroup();
-        //GUILayout.EndVertical();
-
-        //GUILayout.EndVertical();
-
-        //GUILayout.BeginVertical();
         GUILayout.Space(padding);
 
 
         // Foldout Header Group for the SceneNotes
-        //GUILayout.BeginVertical();
-        showSceneNotes = EditorGUI.BeginFoldoutHeaderGroup(new Rect(0, 23, 200, 20), showSceneNotes, sceneNotesGroup);
-
-        //showSceneNotes = EditorGUI.Foldout(new Rect(3, 23, position.width - 6, 15), showSceneNotes, sceneNotesGroup);
+        
+        showSceneNotes = EditorGUILayout.Foldout(showSceneNotes , "Scene Notes");
 
         if (showSceneNotes)
         {
-            //GUILayout.BeginVertical();
+            
             //Iterates through every sceneNote in the List and output what we need to get from it
             for (int index = 0; index < this.sceneNotes.Count; index++)
             {
                 //Add here what we want to show for each Component Object
                 GUILayout.Space(padding);
-                GUILayout.BeginVertical();
+                GUILayout.BeginHorizontal();
                 GUILayout.Space(padding);
                 GUILayout.Label("NoteInScene", EditorStyles.boldLabel);
+                GUILayout.FlexibleSpace();
                 GUILayout.Label(sceneNotes[index].Note);
                 GUILayout.Space(padding);
-                GUILayout.EndVertical();
+                GUILayout.EndHorizontal();
 
                 //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
             }
-
-            //GUILayout.EndVertical();
         }
 
-        EditorGUI.EndFoldoutHeaderGroup();
-        //GUILayout.EndVertical();
+        
+        GUILayout.FlexibleSpace();
+        GUILayout.EndVertical();
 
         GUILayout.Space(padding);
 
-        //GUILayout.EndVertical();
+        
 
-        GUILayout.EndScrollView();
+        
 
 
         GUILayout.BeginHorizontal();
-        GUILayout.FlexibleSpace();
+        
         if (GUILayout.Button("Create"))
         {
-            CreateInstance<SmallWindow>();
             NotesScriptableObject ObjectScript =
                 ScriptableObject.CreateInstance(typeof(NotesScriptableObject)) as NotesScriptableObject;
             ObjectScript.objectID = Path.GetRandomFileName();
@@ -147,7 +125,9 @@ public class Notes : EditorWindow
 
 
         GUILayout.EndHorizontal();
-        //GUILayout.EndVertical();
+        
+        GUILayout.EndScrollView();
+        
     }
 
     public void Refresh()
