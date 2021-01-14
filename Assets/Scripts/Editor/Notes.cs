@@ -123,14 +123,15 @@ public class Notes : EditorWindow
                 GUILayout.Space(padding);
 
                 GUILayout.BeginHorizontal();
-                GUILayout.Label("Note Name");
+                if (sceneNotes[index].title != String.Empty || sceneNotes[index].title != "") GUILayout.Label(sceneNotes[index].title,  EditorStyles.boldLabel);
+                else GUILayout.Label("#Empty Title", EditorStyles.boldLabel);
                 GUILayout.FlexibleSpace();
-                GUILayout.Label("Created by: ");
+                GUILayout.Label("Created by:" + " " + sceneNotes[index].deviceName + " - " + sceneNotes[index].CreatedDate );
                 GUILayout.EndHorizontal();
 
                 GUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
-                GUILayout.Label("Edited by: Linus PC - 13/1 2021 17:53");
+                GUILayout.Label("Edited by:" + " " + sceneNotes[index].LastEditedBy + " - " + sceneNotes[index].LastEditDate );
                 GUILayout.EndHorizontal();
 
 
@@ -141,7 +142,7 @@ public class Notes : EditorWindow
 
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Tags: ");
-                GUILayout.TextArea("Project," + " " + "TestNote2,");
+                GUILayout.TextArea("Scene," + " " + sceneNotes[index].tags);
                 GUILayout.EndHorizontal();
 
 
@@ -152,14 +153,15 @@ public class Notes : EditorWindow
 
                 if (GUILayout.Button("Ping GameObject"))
                 {
-                    //TODO: Make it ping the related GameObject
+                    EditorGUIUtility.PingObject(sceneNotes[index]);
                 }
 
                 GUILayout.FlexibleSpace();
 
                 if (GUILayout.Button("Delete"))
                 {
-                    //TODO: Make it delete the object & refresh the window
+                    sceneNotes[index].Delete();
+                    Refresh();
                 }
 
                 GUILayout.EndHorizontal();

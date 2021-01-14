@@ -29,7 +29,7 @@ public class NoteComponent : MonoBehaviour
     {
         Note = string.Empty;
         color = Color.white;
-        CreatedDate = DateTime.UtcNow.ToString();
+        CreatedDate = DateTime.Now.ToString();
         deviceName = Environment.UserName;
     }
     
