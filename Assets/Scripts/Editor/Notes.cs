@@ -52,14 +52,45 @@ public class Notes : EditorWindow
 
             for (int index = 0; index < this.sceneNotes.Count; index++)
             {
+                
+                
                 //Add here what we want to show for each Component Object
+                GUI.backgroundColor = sceneNotes[index].color;
                 GUILayout.Space(padding);
+                
                 GUILayout.BeginHorizontal();
-                GUILayout.Space(padding);
-                GUILayout.Label("NoteInScene", EditorStyles.boldLabel);
+                GUILayout.Label("Note Name");
                 GUILayout.FlexibleSpace();
-                GUILayout.Label(sceneNotes[index].Note);
+                GUILayout.Label("Created by: Linus PC - 13/1 2021 17:53");
+                GUILayout.EndHorizontal();
+                
+                GUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                GUILayout.Label("Edited by: Linus PC - 13/1 2021 17:53");
+                GUILayout.EndHorizontal();
+                
+                
+                GUILayout.BeginHorizontal();
+                GUILayout.TextArea(sceneNotes[index].Note);
                 GUILayout.Space(padding);
+                GUILayout.EndHorizontal();
+                
+                GUI.backgroundColor = originalColor;
+                
+                
+                GUILayout.BeginHorizontal();
+            
+                if (GUILayout.Button("Edit Note"))
+                {
+                    //TODO: Open the EditorWindow to Edit the note   
+                }
+        
+                GUILayout.FlexibleSpace();
+        
+                if (GUILayout.Button("Delete"))
+                {
+                    //TODO: Make it delete the object & refresh the window
+                }
                 GUILayout.EndHorizontal();
 
                 //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
@@ -80,15 +111,47 @@ public class Notes : EditorWindow
             for (int index = 0; index < this.sceneNotes.Count; index++)
             {
                 //Add here what we want to show for each Component Object
+
+                GUI.backgroundColor = sceneNotes[index].color;
                 GUILayout.Space(padding);
+                
                 GUILayout.BeginHorizontal();
-                GUILayout.Space(padding);
-                GUILayout.Label("NoteInScene", EditorStyles.boldLabel);
+                GUILayout.Label("Note Name");
                 GUILayout.FlexibleSpace();
-                GUILayout.Label(sceneNotes[index].Note);
+                GUILayout.Label("Created by: Linus PC - 13/1 2021 17:53");
+                GUILayout.EndHorizontal();
+                
+                GUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                GUILayout.Label("Edited by: Linus PC - 13/1 2021 17:53");
+                GUILayout.EndHorizontal();
+                
+                
+                GUILayout.BeginHorizontal();
+                GUILayout.TextArea(sceneNotes[index].Note);
                 GUILayout.Space(padding);
                 GUILayout.EndHorizontal();
-
+                
+                GUI.backgroundColor = originalColor;
+                
+                
+                GUILayout.BeginHorizontal();
+            
+                if (GUILayout.Button("Ping GameObject"))
+                {
+                    //TODO: Make it ping the related GameObject
+                }
+        
+                GUILayout.FlexibleSpace();
+        
+                if (GUILayout.Button("Delete"))
+                {
+                    //TODO: Make it delete the object & refresh the window
+                }
+                GUILayout.EndHorizontal();
+                
+                
+                
                 //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
             }
         }
@@ -102,7 +165,7 @@ public class Notes : EditorWindow
         
 
         
-
+        
 
         GUILayout.BeginHorizontal();
         
@@ -134,7 +197,7 @@ public class Notes : EditorWindow
     {
         this.sceneNotes = new List<NoteComponent>();
         // Also needs to have a foreach that looks through Project notes?
-
+        
 
         foreach (GameObject gameObject in (GameObject[]) Object.FindObjectsOfType<GameObject>())
         {
