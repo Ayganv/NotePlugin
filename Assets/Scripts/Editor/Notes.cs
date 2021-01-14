@@ -9,6 +9,9 @@ public class Notes : EditorWindow
 {
     private const float padding = 10;
     private List<NoteComponent> sceneNotes;
+
+    private string[] scriptableobject =
+        AssetDatabase.FindAssets(string.Format("t:{0}", (object) typeof(NotesScriptableObject)), new string[1]);
     private Vector2 scroll;
 
     private Rect offsetRect;
@@ -122,7 +125,7 @@ public class Notes : EditorWindow
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Note Name");
                 GUILayout.FlexibleSpace();
-                GUILayout.Label("Created by: Linus PC - 13/1 2021 17:53");
+                GUILayout.Label("Created by: ");
                 GUILayout.EndHorizontal();
 
                 GUILayout.BeginHorizontal();

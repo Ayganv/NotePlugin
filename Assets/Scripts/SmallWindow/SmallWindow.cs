@@ -12,6 +12,4 @@ public class SmallWindow : EditorWindow
     {
         this._objectData.description = EditorGUILayout.TextArea(this._objectData.description);
     }
-    
-    
 }
