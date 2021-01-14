@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
+using Object = UnityEngine.Object;
 
 public class Notes : EditorWindow
 {
@@ -71,7 +73,8 @@ public class Notes : EditorWindow
                 
                 
                 GUILayout.BeginHorizontal();
-                GUILayout.TextArea(sceneNotes[index].Note);
+                if(sceneNotes[index].Note != String.Empty) GUILayout.TextArea(sceneNotes[index].Note);
+                else GUILayout.TextArea("#Empty Note");
                 GUILayout.Space(padding);
                 GUILayout.EndHorizontal();
                 
@@ -133,7 +136,8 @@ public class Notes : EditorWindow
                 
                 
                 GUILayout.BeginHorizontal();
-                GUILayout.TextArea(sceneNotes[index].Note);
+                if(sceneNotes[index].Note != String.Empty) GUILayout.TextArea(sceneNotes[index].Note);
+                else GUILayout.TextArea("#Empty Note");
                 GUILayout.Space(padding);
                 GUILayout.EndHorizontal();
                 
