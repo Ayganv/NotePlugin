@@ -75,6 +75,11 @@ public class Notes : EditorWindow
                 GUILayout.Space(padding);
                 GUILayout.EndHorizontal();
                 
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Tags: ");
+                GUILayout.TextArea("Project," + " " + "TestNote2,");
+                GUILayout.EndHorizontal(); 
+                
                 GUI.backgroundColor = originalColor;
                 
                 
@@ -131,6 +136,12 @@ public class Notes : EditorWindow
                 GUILayout.TextArea(sceneNotes[index].Note);
                 GUILayout.Space(padding);
                 GUILayout.EndHorizontal();
+                
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Tags: ");
+                GUILayout.TextArea("Project," + " " + "TestNote2,");
+                GUILayout.EndHorizontal(); 
+                
                 
                 GUI.backgroundColor = originalColor;
                 
