@@ -21,13 +21,16 @@ public class NoteComponent : MonoBehaviour
     [SerializeField] public string LastEditDate;
     
     [TextArea(10, 10)]
-    public string Note;
+    public string note;
     public string tags;
     public Color color;
 
+    
+    public bool show;
+
     private NoteComponent()
     {
-        Note = string.Empty;
+        note = string.Empty;
         color = Color.white;
         CreatedDate = DateTime.Now.ToString();
         deviceName = Environment.UserName;

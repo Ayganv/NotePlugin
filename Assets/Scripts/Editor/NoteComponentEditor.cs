@@ -15,13 +15,13 @@ public class NoteComponentEditor : Editor
       
       EditorGUI.BeginChangeCheck();
 
-      noteComponent.title = EditorGUILayout.TextField(nameof(noteComponent.title), noteComponent.title);
+      noteComponent.title = EditorGUILayout.TextField("Title", noteComponent.title);
       
-      noteComponent.tags = EditorGUILayout.TextField(nameof(noteComponent.tags), noteComponent.tags);
+      noteComponent.tags = EditorGUILayout.TextField("Tags", noteComponent.tags);
       
-      noteComponent.Note = EditorGUILayout.TextField(nameof(noteComponent.Note), noteComponent.Note, GUILayout.Height(100)  );
+      noteComponent.note = EditorGUILayout.TextField("Note", noteComponent.note, GUILayout.Height(100)  );
 
-      noteComponent.color = EditorGUILayout.ColorField(nameof(noteComponent.color), noteComponent.color);
+      noteComponent.color = EditorGUILayout.ColorField("Color", noteComponent.color);
       
       if (EditorGUI.EndChangeCheck())
       {
@@ -38,5 +38,7 @@ public class NoteComponentEditor : Editor
 
       EditorGUILayout.TextField("Last Edited Date: ", noteComponent.LastEditDate);
       EditorGUI.EndDisabledGroup();
+
+      noteComponent.show = EditorGUILayout.Toggle(nameof(noteComponent.show), noteComponent.show);
    }
 }
