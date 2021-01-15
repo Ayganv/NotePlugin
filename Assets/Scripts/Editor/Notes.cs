@@ -10,8 +10,8 @@ public class Notes : EditorWindow
     private const float padding = 10;
     private List<NoteComponent> sceneNotes;
 
-    private string[] scriptableobject =
-        AssetDatabase.FindAssets(string.Format("t:{0}", (object) typeof(NotesScriptableObject)), new string[1]);
+    // private string[] scriptableobject =
+    //     AssetDatabase.FindAssets(string.Format("t:{0}", (object) typeof(NotesScriptableObject)), new string[1]);
     private Vector2 scroll;
 
     private Rect offsetRect;
