@@ -8,16 +8,12 @@ public class NoteComponent : MonoBehaviour
 {
     public string title;
     
-    [ReadOnly]
     [SerializeField] public string deviceName;
     
-    [ReadOnly]
     [SerializeField] public string CreatedDate;
 
-    [ReadOnly]
     [SerializeField] public string LastEditedBy;
     
-    [ReadOnly]
     [SerializeField] public string LastEditDate;
     
     [TextArea(10, 10)]

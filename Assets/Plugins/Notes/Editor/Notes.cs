@@ -200,7 +200,8 @@ public class Notes : EditorWindow
 
                 GUILayout.FlexibleSpace();
 
-                if (GUILayout.Button("Delete"))
+                if (GUILayout.Button("Delete")
+                    && EditorUtility.DisplayDialog("Delete Note", "Are you sure you want to delete your note?", "Yes", "No"))
                 {
                     sceneNotes[index].Delete();
                     Refresh();
