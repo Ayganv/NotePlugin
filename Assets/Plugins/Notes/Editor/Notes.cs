@@ -44,7 +44,7 @@ public class Notes : EditorWindow
         GUILayout.BeginVertical();
 
         GUILayout.Space(10f);
-        
+
         GUILayout.Label("Search", EditorStyles.boldLabel);
         searchString = EditorGUILayout.TextField(searchString);
 
@@ -64,11 +64,11 @@ public class Notes : EditorWindow
                 {
                     noteComponent.show = true;
                 }
-                else if(noteComponent.title.ToLower().Contains(searchString.ToLower()))
+                else if (noteComponent.title.ToLower().Contains(searchString.ToLower()))
                 {
                     noteComponent.show = true;
                 }
-                else if(noteComponent.tags.ToLower().Contains(searchString.ToLower()))
+                else if (noteComponent.tags.ToLower().Contains(searchString.ToLower()))
                 {
                     noteComponent.show = true;
                 }
@@ -78,10 +78,10 @@ public class Notes : EditorWindow
                 }
             }
         }
-        
+
         showProjectNotes =
             EditorGUILayout.Foldout(showProjectNotes, "Project Notes");
-        if(showProjectNotes)
+        if (showProjectNotes)
             GUILayout.Label("WIP", EditorStyles.boldLabel);
         // if (showProjectNotes)
         // {
@@ -143,9 +143,8 @@ public class Notes : EditorWindow
 
 
         // Foldout Header Group for the SceneNotes
-        
-        
-        
+
+
         showSceneNotes = EditorGUILayout.Foldout(showSceneNotes, "Scene Notes");
 
         if (showSceneNotes)
@@ -157,59 +156,59 @@ public class Notes : EditorWindow
 
                 if (sceneNotes[index].show)
                 {
-                    
-                
-                    
-                
-                GUI.backgroundColor = sceneNotes[index].color;
-                GUILayout.Space(padding);
+                    GUI.backgroundColor = sceneNotes[index].color;
+                    GUILayout.Space(padding);
 
-                GUILayout.BeginHorizontal();
-                if (sceneNotes[index].title != String.Empty || sceneNotes[index].title != "") GUILayout.Label(sceneNotes[index].title,  EditorStyles.boldLabel);
-                else GUILayout.Label("#Empty Title", EditorStyles.boldLabel);
-                GUILayout.FlexibleSpace();
-                GUILayout.Label("Created by:" + " " + sceneNotes[index].deviceName + " - " + sceneNotes[index].CreatedDate );
-                GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal();
+                    if (sceneNotes[index].title != String.Empty || sceneNotes[index].title != "")
+                        GUILayout.Label(sceneNotes[index].title, EditorStyles.boldLabel);
+                    else GUILayout.Label("#Empty Title", EditorStyles.boldLabel);
+                    GUILayout.FlexibleSpace();
+                    GUILayout.Label("Created by:" + " " + sceneNotes[index].deviceName + " - " +
+                                    sceneNotes[index].CreatedDate);
+                    GUILayout.EndHorizontal();
 
-                GUILayout.BeginHorizontal();
-                GUILayout.FlexibleSpace();
-                GUILayout.Label("Edited by:" + " " + sceneNotes[index].LastEditedBy + " - " + sceneNotes[index].LastEditDate );
-                GUILayout.EndHorizontal();
-
-
-                GUILayout.BeginHorizontal();
-                if (sceneNotes[index].note != String.Empty) GUILayout.TextArea(sceneNotes[index].note);
-                else GUILayout.TextArea("#Empty Note");
-                GUILayout.EndHorizontal();
-
-                GUILayout.BeginHorizontal();
-                GUILayout.Label("Tags: ");
-                GUILayout.TextArea(sceneNotes[index].tags);
-                GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal();
+                    GUILayout.FlexibleSpace();
+                    GUILayout.Label("Edited by:" + " " + sceneNotes[index].LastEditedBy + " - " +
+                                    sceneNotes[index].LastEditDate);
+                    GUILayout.EndHorizontal();
 
 
-                GUI.backgroundColor = originalColor;
+                    GUILayout.BeginHorizontal();
+                    if (sceneNotes[index].note != String.Empty) GUILayout.TextArea(sceneNotes[index].note);
+                    else GUILayout.TextArea("#Empty Note");
+                    GUILayout.EndHorizontal();
+
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label("Tags: ");
+                    GUILayout.TextArea(sceneNotes[index].tags);
+                    GUILayout.EndHorizontal();
 
 
-                GUILayout.BeginHorizontal();
+                    GUI.backgroundColor = originalColor;
 
-                if (GUILayout.Button("Ping GameObject"))
-                {
-                    EditorGUIUtility.PingObject(sceneNotes[index]);
+
+                    GUILayout.BeginHorizontal();
+
+                    if (GUILayout.Button("Ping GameObject"))
+                    {
+                        EditorGUIUtility.PingObject(sceneNotes[index]);
+                    }
+
+                    GUILayout.FlexibleSpace();
+
+                    if (GUILayout.Button("Delete")
+                        && EditorUtility.DisplayDialog("Delete Note", "Are you sure you want to delete your note?",
+                            "Yes", "No"))
+                    {
+                        sceneNotes[index].Delete();
+                        Refresh();
+                    }
+
+                    GUILayout.EndHorizontal();
                 }
 
-                GUILayout.FlexibleSpace();
-
-                if (GUILayout.Button("Delete")
-                    && EditorUtility.DisplayDialog("Delete Note", "Are you sure you want to delete your note?", "Yes", "No"))
-                {
-                    sceneNotes[index].Delete();
-                    Refresh();
-                }
-
-                GUILayout.EndHorizontal();
-
-                }
                 //TODO: Needs to show: NoteName, NoteText, Tags, Color, Created Date, Edited Date, DeviceInfo
             }
         }
