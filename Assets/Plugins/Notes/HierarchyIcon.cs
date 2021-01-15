@@ -19,7 +19,7 @@ class HierarchyIcon {
         markedObjects = new List<int>();
         foreach (GameObject g in go) {
             // Mark all note components
-            if (g.GetComponent<NoteComponent>() != null)
+            if (g.GetComponent<Note>() != null)
                 markedObjects.Add(g.GetInstanceID());
         }
     }

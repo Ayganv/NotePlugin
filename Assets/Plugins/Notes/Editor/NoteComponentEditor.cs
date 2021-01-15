@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(NoteComponent))]
+[CustomEditor(typeof(Note))]
 public class NoteComponentEditor : Editor
 {
    public override void OnInspectorGUI()
    {
       
       // base.OnInspectorGUI();
-      var noteComponent = this.target as NoteComponent;
+      var noteComponent = this.target as Note;
       
       EditorGUI.BeginChangeCheck();
 
@@ -19,7 +19,8 @@ public class NoteComponentEditor : Editor
       
       noteComponent.tags = EditorGUILayout.TextField("Tags", noteComponent.tags);
       
-      noteComponent.note = EditorGUILayout.TextField("Note", noteComponent.note, GUILayout.Height(100)  );
+      EditorGUILayout.LabelField("Note");
+      noteComponent.note = EditorGUILayout.TextArea(noteComponent.note, GUILayout.MinHeight(50));
 
       noteComponent.color = EditorGUILayout.ColorField("Color", noteComponent.color);
       

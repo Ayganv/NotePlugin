@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class NoteComponent : MonoBehaviour
+public class Note : MonoBehaviour
 {
     public string title;
     
@@ -16,7 +17,7 @@ public class NoteComponent : MonoBehaviour
     
     [SerializeField] public string LastEditDate;
     
-    [TextArea(10, 10)]
+    [Multiline(10)]
     public string note;
     public string tags;
     public Color color;
@@ -24,7 +25,7 @@ public class NoteComponent : MonoBehaviour
     
     public bool show;
 
-    private NoteComponent()
+    private Note()
     {
         note = string.Empty;
         color = Color.white;

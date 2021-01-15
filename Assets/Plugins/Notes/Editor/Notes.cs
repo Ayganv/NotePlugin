@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 public class Notes : EditorWindow
 {
     private const float padding = 10;
-    private List<NoteComponent> sceneNotes;
+    private List<Note> sceneNotes;
 
     // private string[] scriptableobject =
     //     AssetDatabase.FindAssets(string.Format("t:{0}", (object) typeof(NotesScriptableObject)), new string[1]);
@@ -50,14 +50,14 @@ public class Notes : EditorWindow
 
         if (searchString == string.Empty || searchString == "" || searchString == " ")
         {
-            foreach (NoteComponent noteComponent in sceneNotes)
+            foreach (Note noteComponent in sceneNotes)
             {
                 noteComponent.show = true;
             }
         }
         else
         {
-            foreach (NoteComponent noteComponent in sceneNotes)
+            foreach (Note noteComponent in sceneNotes)
             {
                 //noteComponent.show = noteComponent.note.ToLower().Contains(searchString.ToLower());
                 if (noteComponent.note.ToLower().Contains(searchString.ToLower()))
@@ -250,16 +250,16 @@ public class Notes : EditorWindow
 
     public void Refresh()
     {
-        this.sceneNotes = new List<NoteComponent>();
+        this.sceneNotes = new List<Note>();
         // Also needs to have a foreach that looks through Project notes?
 
 
         foreach (GameObject gameObject in (GameObject[]) Object.FindObjectsOfType<GameObject>())
         {
-            NoteComponent[] components = (NoteComponent[]) gameObject.GetComponents<NoteComponent>();
+            Note[] components = (Note[]) gameObject.GetComponents<Note>();
             if (components != null)
             {
-                foreach (NoteComponent noteComponent in components)
+                foreach (Note noteComponent in components)
                 {
                     this.sceneNotes.Add(noteComponent);
                 }
